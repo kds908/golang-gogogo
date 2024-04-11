@@ -47,10 +47,13 @@ func TestSliceShareMemory(t *testing.T) {
 }
 
 func TestSliceCompare(t *testing.T) {
-	//a := []int{1, 2, 3, 4}
+	a := []int{1, 2, 3, 4}
 	//b := []int{1, 2, 3, 4}
 	// 切片只能与 空nil比较
 	//if a == b {
 	//	t.Log("equal")
 	//}
+	if a == nil {
+		t.Log("a == nil")
+	}
 }
