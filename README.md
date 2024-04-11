@@ -26,3 +26,41 @@ UTF8 是 Unicode的存储实现（转换为字符的规则）
 不必指定参数的个数
 
 defer 函数 类似于 finally
+
+---
+
+## 面向对象
+
+### 封装数据和行为
+结构体定义
+```go
+type Employee struct {
+	Id int
+	Name string
+	Age int
+}
+```
+实例创建及初始化
+```go
+e := Employee{Id: 1, Name: "Tom", Age: 18}
+e1 := Employee{Name: "Tom", Age: 18}
+e2 := new(Employee) // 返回的引用/指针，相当于 e := &Employee{}
+e2.Id = 1 // 与其他编程语言的差异：通过实例的指针访问成员不需要使用 ->
+e2.Name = "Tom"
+e2.Age = 18
+```
+
+行为（方法）定义
+
+与其他主要编程语言的差异：
+```go
+// 在实例对应方法被调用时，实例的成员会进行值复制
+func (e Employee) String() string {
+	return fmt.Sprintf("Id: %d, Name: %s, Age: %d", e.Id, e.Name, e.Age)
+}
+
+// 通常为了避免内存拷贝，使用第二种定义方式
+func (e *Employee) String() string {
+	return fmt.Sprintf("Id: %d, Name: %s, Age: %d", e.Id, e.Name, e.Age)
+}
+```
