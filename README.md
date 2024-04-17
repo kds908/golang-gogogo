@@ -64,3 +64,24 @@ func (e *Employee) String() string {
 	return fmt.Sprintf("Id: %d, Name: %s, Age: %d", e.Id, e.Name, e.Age)
 }
 ```
+
+Go 接口
+
+与其他主要编程语言的差异：
+1. 接口为非入侵性，实现不依赖于接口定义
+2. 所以接口的定义可以包含在接口使用者包内
+
+接口变量
+```go
+var prog Coder = &GoProgrammer{}
+// 类型
+type GoProgrammer struct {
+}
+// 数据
+&GoProgrammer{}
+```
+
+自定义类型
+```go
+
+```
